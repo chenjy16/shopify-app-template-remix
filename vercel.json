@@ -3,14 +3,9 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "framework": "remix",
-  "outputDirectory": "build/client", // 客户端静态资源
-  "regions": ["hkg1"],               // 关键！这已经导向 Node.js Serverless Functions
+  "outputDirectory": "build/client",
+  "regions": ["hkg1"],
   "env": {
     "NODE_ENV": "production"
-  },
-  "functions": {
-    "api/**/*.js": { // 或者更具体的路径如 'api/index.js' 如果您知道确切的入口
-      "runtime": "nodejs20.x", // 或 "nodejs20.x" 等您需要的 Node.js 版本
-    }
   }
 }
