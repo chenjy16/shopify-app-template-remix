@@ -1,0 +1,23 @@
+{
+  "buildCommand": "prisma generate && npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "remix",
+  "outputDirectory": "build/client",
+  "regions": ["hkg1"],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "builds": [
+    {
+      "src": "build/server/index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "build/server/index.js"
+    }
+  ]
+} 
