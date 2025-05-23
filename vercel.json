@@ -7,5 +7,10 @@
   "regions": ["hkg1"],
   "env": {
     "NODE_ENV": "production"
+  },
+  "functions": {
+    "build/server/index.js": {
+      "runtime": "node.js"
+    }
   }
 } 

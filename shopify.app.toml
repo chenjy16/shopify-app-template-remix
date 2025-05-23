@@ -3,27 +3,25 @@
 client_id = "c5522c366a54713f298877ebe087a288"
 name = "SyncBridge"
 handle = "syncbridge"
-application_url = "https://shopify-app-template-remix-five.vercel.app/"
+application_url = "https://shopify-app-template-remix-five.vercel.app"
 embedded = true
+
+[build]
+automatically_update_urls_on_dev = false
 
 [webhooks]
 api_version = "2025-04"
 
   [[webhooks.subscriptions]]
-  topics = [ "app/uninstalled" ]
-  uri = "/webhooks/app/uninstalled"
-
-  [[webhooks.subscriptions]]
   topics = [ "app/scopes_update" ]
   uri = "/webhooks/app/scopes_update"
 
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
 [auth]
-redirect_urls = [
-  "https://shopify-app-template-remix-five.vercel.app/auth/callback"
-]
+redirect_urls = [ "https://shopify-app-template-remix-five.vercel.app/auth/callback" ]
 
 [pos]
 embedded = false
-
-[build]
-automatically_update_urls_on_dev = false
