@@ -8,9 +8,7 @@
   "env": {
     "NODE_ENV": "production"
   },
-  "functions": {
-    "build/server/index.js": {
-      "runtime": "@vercel/node@2.15.8"
-    }
+  "runtime": {
+    "type": "nodejs"
   }
 } 
