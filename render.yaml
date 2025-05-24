@@ -1,0 +1,45 @@
+# Render 部署配置文件
+# 详细文档: https://render.com/docs/yaml-spec
+
+services:
+  # Web 服务配置
+  - type: web
+    name: shopify-app-template-remix
+    env: node # Node.js 环境
+    plan: free # 可选: free, starter, standard, pro, etc.
+    region: singapore # 可选区域: singapore, oregon, ohio, frankfurt, etc.
+    buildCommand: npm install && npx prisma generate && npm run build
+    startCommand: npm run start
+    healthCheckPath: /
+    # 自动扩展配置
+    autoscaling:
+      min: 1
+      max: 1
+    # 环境变量
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 8080
+      # Shopify API 配置 - 这些值需要在 Render Dashboard 中设置
+      - key: SHOPIFY_API_KEY
+        sync: false # 不从 Render Dashboard 同步，需要手动设置
+      - key: SHOPIFY_API_SECRET
+        sync: false
+      - key: SHOPIFY_APP_URL
+        sync: false
+      - key: SCOPES
+        sync: false
+      # 数据库连接字符串 - 需要在 Render Dashboard 中设置
+      - key: DATABASE_URL
+        sync: false
+    # 自动部署配置
+    autoDeploy: true
+
+# 数据库配置 - 如果需要在 Render 上创建数据库
+# databases:
+#   - name: shopify-app-db
+#     plan: free
+#     region: singapore
+#     databaseName: shopify_app
+#     user: shopify_app_user
