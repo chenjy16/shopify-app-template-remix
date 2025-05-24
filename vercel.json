@@ -7,10 +7,10 @@
   "regions": ["hkg1"],
   "functions": {
     "app/routes/**/*.tsx": {
-      "runtime": "node@18"
+      "runtime": "nodejs18.x"
     },
     "app/routes/**/*.ts": {
-      "runtime": "node@18"
+      "runtime": "nodejs18.x"
     }
   },
   "env": {
