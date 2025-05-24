@@ -1,0 +1,19 @@
+{
+  "buildCommand": "npx prisma generate && npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "remix",
+  "outputDirectory": "build/client",
+  "regions": ["hkg1"],
+  "functions": {
+    "app/routes/**/*.tsx": {
+      "runtime": "node@18"
+    },
+    "app/routes/**/*.ts": {
+      "runtime": "node@18"
+    }
+  },
+  "env": {
+    "NODE_ENV": "production"
+  }
+}
