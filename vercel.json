@@ -5,6 +5,14 @@
   "framework": "remix",
   "outputDirectory": "build/client",
   "regions": ["hkg1"],
+  "functions": {
+    "app/routes/**/*.tsx": {
+      "runtime": "node@18"
+    },
+    "app/routes/**/*.ts": {
+      "runtime": "node@18"
+    }
+  },
   "env": {
     "NODE_ENV": "production"
   }
